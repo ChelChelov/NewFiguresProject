@@ -72,17 +72,5 @@ public class Triangle extends Figure implements Serializable {
 
     @Override
     public double[] initializeFiguresParameters() {
-        System.out.println(TRIANGLE_LINES_OR_BACK);
-        String firstLine = SCANNER.next().toLowerCase();
-        String secondLine = SCANNER.next().toLowerCase();
-        String thirdLine = SCANNER.next().toLowerCase();
-        if (validation(firstLine) && validation(secondLine) && validation(thirdLine)) {
-        } else {
-            System.out.println(WRONG_PARAMETERS_MESSAGE);
-            initializeFiguresParameters();
-        }
-        return new double[]{this.firstLine = Double.parseDouble(firstLine),
-                this.secondLine = Double.parseDouble(secondLine),
-                this.thirdLine = Double.parseDouble(thirdLine)};
+
     }
-}
