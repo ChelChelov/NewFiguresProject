@@ -5,6 +5,7 @@ import FiguresProject.FiguresClasses.Figure;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static FiguresProject.Controllers.ControllerMessage.*;
 
@@ -30,23 +31,33 @@ public class FiguresDB implements Serializable {
                 f.getInfo();
             }
         }
+
     }
 
-    public static void printLastFigureInList(){
-        if (geometricalFigures.isEmpty()) {
-            System.out.println(NO_ONE_FIGURE_IN_LIST);
-        } else {
-            geometricalFigures.get(geometricalFigures.size()-1).getInfo();
-        }
-    }
-
-    public static void showResultOfCalculation() {
-        System.out.println(FIGURE_ADDED);
+    public static void printLastFigureInList() {
         geometricalFigures.get(geometricalFigures.size() - 1).getInfo();
     }
 
-    public static void showResultOfChanging(int choice) {
-        System.out.println(FIGURE_CHANGED);
-        geometricalFigures.get(choice - 1).getInfo();
+//    public static void showResultOfCalculation() {
+//        System.out.println(FIGURE_ADDED);
+//        geometricalFigures.get(geometricalFigures.size() - 1).getInfo();
+//    }
+
+//    public static void showResultOfChanging(int choice) {
+//        System.out.println(FIGURE_CHANGED);
+//        geometricalFigures.get(choice - 1).getInfo();
+//    }
+
+    public static void addFigureToList(Figure figure) {
+        geometricalFigures.add(figure);
+    }
+
+//    public static void changeLastFigureInList(Figure figure){
+//        geometricalFigures.set(geometricalFigures.size()-1, figure);
+//    }
+
+    public static void printFigure(Figure figure) {
+        figure.getInfo();
     }
 }
+

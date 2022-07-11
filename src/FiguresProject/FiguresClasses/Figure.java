@@ -11,5 +11,7 @@ public abstract class Figure implements Serializable {
 
     public abstract void getInfo();
 
-    public abstract double[] initializeFiguresParameters();
+    public abstract void initializeFiguresParameters();
+
+    public abstract void changeFiguresParameters();
 }

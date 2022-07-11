@@ -48,15 +48,20 @@ public class Circle extends Figure implements Serializable {
     }
 
     @Override
-    public double[] initializeFiguresParameters() {
+    public void initializeFiguresParameters() {
         System.out.println(RADIUS_OF_CIRCLE_OR_BACK);
         String radius = SCANNER.next().toLowerCase();
         if (validation(radius)) {
+            this.radius = Double.parseDouble(radius);
         } else {
             System.out.println(WRONG_PARAMETERS_MESSAGE);
             initializeFiguresParameters();
         }
-        return new double[]{this.radius = Double.parseDouble(radius)};
+    }
+
+    @Override
+    public void changeFiguresParameters() {
+
     }
 }
 

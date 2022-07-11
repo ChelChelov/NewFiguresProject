@@ -12,14 +12,14 @@ public class ControllerMessage {
             "You set wrong parameter, please set only positive numbers\n";
     public static final String FIGURE_ADDED = "Figure was successfully added to the list\n";
     public static final String FIGURE_CHANGED = "Figure was successfully changed\n";
-    public static final String RADIUS_OF_CIRCLE_OR_BACK = "Set the radius to initialize the circle or press  any letter to go back.\n" +
+    public static final String RADIUS_OF_CIRCLE_OR_BACK = "Set the radius to initialize the circle or press \"B\" to go back.\n" +
             "Please set only positive numbers.";
-    public static final String TRIANGLE_LINES_OR_BACK = "Set three lines to initialize the triangle or press any letter to go back.\n" +
+    public static final String TRIANGLE_LINES_OR_BACK = "Set three lines to initialize the triangle or press \"B\" to go back.\n" +
             "Please set only positive numbers.";
-    public static final String WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK = "Set width and height to initialize the rectangle or press any letter to go back.\n" +
+    public static final String WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK = "Set width and height to initialize the rectangle or press \"B\" to go back.\n" +
             "Please set only positive numbers.";
-    public static final String NO_ONE_FIGURE_IN_LIST = "There are no one geometrical figure in this list yet\n";
-    public static final String NUMBER_TO_CHANGE = "Please enter a number of the figure you want to change:\n";
+    public static final String NO_ONE_FIGURE_IN_LIST = "There are no one geometrical figure in the list yet\n";
+    public static final String NUMBER_TO_CHANGE = "Please enter a number of the figure you want to change or press \"B\" to go back.\n";
     public static final String MAIN_MENU_MESSAGE = """
             Please, type a number to select an option to:
             1) Calculate perimeter and area of geometrical figures in "Calculate Menu"

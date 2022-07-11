@@ -60,20 +60,27 @@ public class Rectangle extends Figure implements Serializable {
     }
 
     @Override
-    public double[] initializeFiguresParameters() {
+    public void initializeFiguresParameters() {
         System.out.println(WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK);
         String width = SCANNER.next().toLowerCase();
         if (validation(width)) {
+            this.width = Double.parseDouble(width);
             String height = SCANNER.next().toLowerCase();
             if (validation(height)) {
-                return new double[]{this.width = Double.parseDouble(width),
-                        this.height = Double.parseDouble(height)};
+                this.height = Double.parseDouble(height);
+            } else {
+                System.out.println(WRONG_PARAMETERS_MESSAGE);
+                initializeFiguresParameters();
             }
         } else {
             System.out.println(WRONG_PARAMETERS_MESSAGE);
             initializeFiguresParameters();
         }
-        return new double[]{0};  // I should understand what does it line mean and how it works, because it isn't use.
+    }
+
+    @Override
+    public void changeFiguresParameters() {
+
     }
 }
 //System.out.println(WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK);

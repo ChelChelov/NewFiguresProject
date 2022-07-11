@@ -19,7 +19,6 @@ public class ControllerMenu {
     public void mainMenu() {
 //        System.out.println(welcomeMessage);
         System.out.println(MAIN_MENU_MESSAGE);
-        ;
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
             case "1" -> initializeMenu();
@@ -49,8 +48,8 @@ public class ControllerMenu {
         System.out.println(EDIT_MENU_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
-//            case "1" -> changingFiguresService.userChangesValueOfLastFigureInList();
-//            case "2" -> changingFiguresService.userChangesValueOfFigure();
+            case "1" -> setParametersService.userChangesValueOfLastFigureInList();
+            case "2" -> setParametersService.userChangesValueOfSelectedFigureInList();
             case "s" -> saveLoadMenu();
             case "c" -> initializeMenu();
             case "m" -> mainMenu();

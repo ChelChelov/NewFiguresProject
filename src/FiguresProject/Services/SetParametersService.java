@@ -8,99 +8,88 @@ import FiguresProject.FiguresClasses.Rectangle;
 import FiguresProject.FiguresClasses.Triangle;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import static FiguresProject.Controllers.ControllerMessage.*;
+import static FiguresProject.DB.FiguresDB.*;
 
 public class SetParametersService {
     public static final Scanner SCANNER = new Scanner(System.in);
-    AddFiguresService addFiguresService = new AddFiguresService();
-    List<Figure> geometricalFigures = FiguresDB.getGeometricalFigures();
+//    AddFiguresService addFiguresService = new AddFiguresService();
+//    List<Figure> geometricalFigures = FiguresDB.getGeometricalFigures();
 
     public void figuresInitializer(String number) {
 
         if (number.equals("1")) {
             Circle circle = new Circle();
             circle.initializeFiguresParameters();
-            addFiguresService.addFigureToList(circle);
-            addFiguresService.printFigure(circle);
-
-//            System.out.println(RADIUS_OF_CIRCLE_OR_BACK);
-//            String radius = SCANNER.next().toLowerCase();
-//            if (validation(radius)) {
-//                setParametersOfCircle(radius);
-//        } else {
-//            figuresInitializer(number);
-//        }
-       initializeAnotherOneFigure(number);
+            FiguresDB.addFigureToList(circle);
+            FiguresDB.printFigure(circle);
         }
         if (number.equals("2")) {
             Triangle triangle = new Triangle();
             triangle.initializeFiguresParameters();
-            addFiguresService.addFigureToList(triangle);
-            addFiguresService.printFigure(triangle);
-//            System.out.println(TRIANGLE_LINES_OR_BACK);
-//            String firstLine = SCANNER.next().toLowerCase();
-//            String secondLine = SCANNER.next().toLowerCase();
-//            String thirdLine = SCANNER.next().toLowerCase();
-//            if (validation(firstLine) && validation(secondLine) && validation(thirdLine)) {
-//                setParametersOfTriangle(firstLine, secondLine, thirdLine);
-//        } else {
-//            figuresInitializer(number);
-
-            initializeAnotherOneFigure(number);
+            FiguresDB.addFigureToList(triangle);
+            FiguresDB.printFigure(triangle);
         }
-
         if (number.equals("3")) {
             Rectangle rectangle = new Rectangle();
             rectangle.initializeFiguresParameters();
-            addFiguresService.addFigureToList(rectangle);
-            addFiguresService.printFigure(rectangle);
-//            System.out.println(WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK);
-//            String width = SCANNER.next().toLowerCase();
-//            String height = SCANNER.next().toLowerCase();
-//            if (validation(width) && validation(height)) {
-//                setParametersOfRectangle(width, height);
-//            } else {
-//                figuresInitializer(number);
-//            }
-//        }
-            initializeAnotherOneFigure(number);
+            FiguresDB.addFigureToList(rectangle);
+            FiguresDB.printFigure(rectangle);
+        }
+        initializeAnotherOneFigure(number);
+    }
+
+    public void userChangesValueOfLastFigureInList() {
+        emptyListCheck();
+        printLastFigureInList();
+        Figure figure = getGeometricalFigures().get(getGeometricalFigures().size() - 1);
+        figure.initializeFiguresParameters();
+        getGeometricalFigures().set(getGeometricalFigures().size() - 1, figure);
+        printListOfGeometricalFigures();
+        System.out.println(FIGURE_CHANGED);
+    }
+
+    public void userChangesValueOfSelectedFigureInList() {
+        emptyListCheck();
+        printListOfGeometricalFigures();
+        System.out.println(NUMBER_TO_CHANGE);
+        String value = SCANNER.next().toLowerCase();
+        if (validation(value)) {
+            Figure figure = getGeometricalFigures().get(Integer.parseInt(value) - 1);
+            figure.initializeFiguresParameters();
+            getGeometricalFigures().set(Integer.parseInt(value) - 1, figure);
+            printListOfGeometricalFigures();
+            System.out.println(FIGURE_CHANGED);
+        } else {
+            System.out.println(NOT_CORRECT_CHOICE_MESSAGE);
+            userChangesValueOfSelectedFigureInList();
         }
     }
 
-//    public void setParametersOfCircle(String userChoice) {
-//        Circle circle = new Circle(Double.parseDouble(userChoice));
-//        addFiguresService.addFigureToList(circle);
-//        addFiguresService.printFigure(circle);
-//    }
-//
-//    public void setParametersOfTriangle(String firstLine, String secondLine, String thirdLine) {
-//        Triangle triangle = new Triangle(Double.parseDouble(firstLine), Double.parseDouble(secondLine), Double.parseDouble(thirdLine));
-//        addFiguresService.addFigureToList(triangle);
-//        addFiguresService.printFigure(triangle);
-//    }
-//
-//    public void setParametersOfRectangle(String width, String height) {
-//        Rectangle rectangle = new Rectangle(Double.parseDouble(width), Double.parseDouble(height));
-//        addFiguresService.addFigureToList(rectangle);
-//        addFiguresService.printFigure(rectangle);
-//    }
+    public void emptyListCheck() {
+        if (getGeometricalFigures().isEmpty()) {
+            System.out.println(NO_ONE_FIGURE_IN_LIST);
+            ControllerMenu controllerMenu = new ControllerMenu();
+            controllerMenu.editMenu();
+        }
+    }
+
+    //если нажать В после появления сообщения, возвращается в меню инициализации, нужно поправить валидатор
 
     public static boolean validation(String parameter) {
-//        for (String s :
-//                parameter) {
-        if (parameter.matches("[0-9]+") && Double.parseDouble(parameter) > 0){
-        } else {
+        if (parameter.matches("[0-9]+") && Double.parseDouble(parameter) > 0) {
+        } else if (parameter.equals("b")) {
             ControllerMenu controllerMenu = new ControllerMenu();
             controllerMenu.initializeMenu();
+        } else {
+            return false;
         }
         return true;
     }
 
-
-    // проблема в работе валидатора
-// добавить отдельную валидацию на 1-й параметр для выхода в меню назад
     public void initializeAnotherOneFigure(String param) {
         System.out.println(ANOTHER_ONE_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase();
@@ -111,10 +100,9 @@ public class SetParametersService {
             controllerMenu.initializeMenu();
         }
     }
+
+    public void filterFiguresList() {
+        Optional<Figure> figureOptional = getGeometricalFigures().stream().findFirst();
+        System.out.println(figureOptional.get());
+    }
 }
-
-
-//circle.setRadius(Double.parseDouble(userChoice));
-//triangle.setFirstLine(Double.parseDouble(firstLine));
-//        triangle.setSecondLine(Double.parseDouble(secondLine));
-//        triangle.setThirdLine(Double.parseDouble(thirdLine));
