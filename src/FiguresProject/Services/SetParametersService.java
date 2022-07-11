@@ -79,6 +79,7 @@ public class SetParametersService {
 
     //если нажать В после появления сообщения, возвращается в меню инициализации, нужно поправить валидатор
 
+
     public static boolean validation(String parameter) {
         if (parameter.matches("[0-9]+") && Double.parseDouble(parameter) > 0) {
         } else if (parameter.equals("b")) {
