@@ -31,30 +31,15 @@ public class FiguresDB implements Serializable {
                 f.getInfo();
             }
         }
-
     }
 
     public static void printLastFigureInList() {
         geometricalFigures.get(geometricalFigures.size() - 1).getInfo();
     }
 
-//    public static void showResultOfCalculation() {
-//        System.out.println(FIGURE_ADDED);
-//        geometricalFigures.get(geometricalFigures.size() - 1).getInfo();
-//    }
-
-//    public static void showResultOfChanging(int choice) {
-//        System.out.println(FIGURE_CHANGED);
-//        geometricalFigures.get(choice - 1).getInfo();
-//    }
-
     public static void addFigureToList(Figure figure) {
         geometricalFigures.add(figure);
     }
-
-//    public static void changeLastFigureInList(Figure figure){
-//        geometricalFigures.set(geometricalFigures.size()-1, figure);
-//    }
 
     public static void printFigure(Figure figure) {
         figure.getInfo();

@@ -71,7 +71,7 @@ public class Triangle extends Figure implements Serializable {
     }
 
     @Override
-    public void initializeFiguresParameters() {
+    public void initializeFiguresParameters() throws Exception {
         System.out.println(TRIANGLE_LINES_OR_BACK);
         String firstLine = SCANNER.next().toLowerCase();
         if (validation(firstLine)) {

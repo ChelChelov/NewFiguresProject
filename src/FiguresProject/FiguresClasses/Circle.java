@@ -48,7 +48,7 @@ public class Circle extends Figure implements Serializable {
     }
 
     @Override
-    public void initializeFiguresParameters() {
+    public void initializeFiguresParameters() throws Exception {
         System.out.println(RADIUS_OF_CIRCLE_OR_BACK);
         String radius = SCANNER.next().toLowerCase();
         if (validation(radius)) {

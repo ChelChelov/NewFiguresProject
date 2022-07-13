@@ -60,7 +60,7 @@ public class Rectangle extends Figure implements Serializable {
     }
 
     @Override
-    public void initializeFiguresParameters() {
+    public void initializeFiguresParameters() throws Exception {
         System.out.println(WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK);
         String width = SCANNER.next().toLowerCase();
         if (validation(width)) {

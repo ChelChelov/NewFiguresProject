@@ -19,7 +19,7 @@ public class SetParametersService {
 //    AddFiguresService addFiguresService = new AddFiguresService();
 //    List<Figure> geometricalFigures = FiguresDB.getGeometricalFigures();
 
-    public void figuresInitializer(String number) {
+    public void figuresInitializer(String number) throws Exception {
 
         if (number.equals("1")) {
             Circle circle = new Circle();
@@ -42,7 +42,7 @@ public class SetParametersService {
         initializeAnotherOneFigure(number);
     }
 
-    public void userChangesValueOfLastFigureInList() {
+    public void userChangesValueOfLastFigureInList() throws Exception {
         emptyListCheck();
         printLastFigureInList();
         Figure figure = getGeometricalFigures().get(getGeometricalFigures().size() - 1);
@@ -52,7 +52,7 @@ public class SetParametersService {
         System.out.println(FIGURE_CHANGED);
     }
 
-    public void userChangesValueOfSelectedFigureInList() {
+    public void userChangesValueOfSelectedFigureInList() throws Exception {
         emptyListCheck();
         printListOfGeometricalFigures();
         System.out.println(NUMBER_TO_CHANGE);
@@ -69,7 +69,7 @@ public class SetParametersService {
         }
     }
 
-    public void emptyListCheck() {
+    public static void emptyListCheck() throws Exception {
         if (getGeometricalFigures().isEmpty()) {
             System.out.println(NO_ONE_FIGURE_IN_LIST);
             ControllerMenu controllerMenu = new ControllerMenu();
@@ -80,7 +80,7 @@ public class SetParametersService {
     //если нажать В после появления сообщения, возвращается в меню инициализации, нужно поправить валидатор
 
 
-    public static boolean validation(String parameter) {
+    public static boolean validation(String parameter) throws Exception {
         if (parameter.matches("[0-9]+") && Double.parseDouble(parameter) > 0) {
         } else if (parameter.equals("b")) {
             ControllerMenu controllerMenu = new ControllerMenu();
@@ -91,7 +91,7 @@ public class SetParametersService {
         return true;
     }
 
-    public void initializeAnotherOneFigure(String param) {
+    public void initializeAnotherOneFigure(String param) throws Exception {
         System.out.println(ANOTHER_ONE_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase();
         if (userChoice.equals("y")) {

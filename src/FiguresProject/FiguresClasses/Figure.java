@@ -11,7 +11,7 @@ public abstract class Figure implements Serializable {
 
     public abstract void getInfo();
 
-    public abstract void initializeFiguresParameters();
+    public abstract void initializeFiguresParameters() throws Exception;
 
     public abstract void changeFiguresParameters();
 }

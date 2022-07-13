@@ -1,5 +1,6 @@
 package FiguresProject.Controllers;
 
+import FiguresProject.Repository.SaveLoadFigure;
 import FiguresProject.Services.SetParametersService;
 
 import java.util.Locale;
@@ -15,8 +16,9 @@ public class ControllerMenu {
 //    StringBuilder welcomeMessage = new StringBuilder(WELCOME_MESSAGE);
 //    SetParametersService setParametersService = new SetParametersService();
     SetParametersService setParametersService = new SetParametersService();
+    SaveLoadFigure saveLoadFigure = new SaveLoadFigure();
 
-    public void mainMenu() {
+    public void mainMenu() throws Exception {
 //        System.out.println(welcomeMessage);
         System.out.println(MAIN_MENU_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
@@ -30,7 +32,7 @@ public class ControllerMenu {
         mainMenu();
     }
 
-    public void initializeMenu() {
+    public void initializeMenu() throws Exception {
         System.out.println(INITIALIZE_MENU_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
@@ -44,7 +46,7 @@ public class ControllerMenu {
         initializeMenu();
     }
 
-    public void editMenu() {
+    public void editMenu() throws Exception {
         System.out.println(EDIT_MENU_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
@@ -59,13 +61,13 @@ public class ControllerMenu {
         editMenu();
     }
 
-    public void saveLoadMenu() {
+    public void saveLoadMenu() throws Exception {
         System.out.println(SAVE_LOAD_MENU_MESSAGE);
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
-//            case "1" -> fileService.loadAsDefaultFile();
+            case "1" -> saveLoadFigure.loadAsDefaultFile();
 //            case "2" -> fileService.loadUsersFile();
-//            case "3" -> fileService.saveAsDefaultFile();
+            case "3" -> saveLoadFigure.saveAsDefaultFile();
 //            case "4" -> fileService.deleteSelectedUsersFigures();
 //            case "5" -> fileService.saveUsersFile();
             case "c" -> initializeMenu();
