@@ -11,14 +11,7 @@ public class Rectangle extends Figure implements Serializable {
     private double width;
     private double height;
 
-    public Rectangle(double width, double height) {
-        if (width > 0 && height > 0)
-            this.width = width;
-        this.height = height;
-    }
-
     public Rectangle() {
-
     }
 
     public double getWidth() {
@@ -77,20 +70,4 @@ public class Rectangle extends Figure implements Serializable {
             initializeFiguresParameters();
         }
     }
-
-    @Override
-    public void changeFiguresParameters() {
-
-    }
 }
-//System.out.println(WIDTH_HEIGHT_OF_RECTANGLE_OR_BACK);
-//        String width = SCANNER.next().toLowerCase();
-//        String height = SCANNER.next().toLowerCase();
-//        if (validation(width) && validation(height)) {
-//        } else {
-//        System.out.println(WRONG_PARAMETERS_MESSAGE);
-//        initializeFiguresParameters();
-//        }
-//        return new double[]{this.width = Double.parseDouble(width),
-//        this.height = Double.parseDouble(height)};
-//        }

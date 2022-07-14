@@ -8,6 +8,7 @@ public class ControllerMessage {
             "If you would like to go back - press any button.";
     public static final String FILE_NAME = "Please enter a file name.";
     public static final String FILE_WRITTEN = "File was successfully written\n";
+    public static final String FILE_NOT_FOUND = "File not found.";
     public static final String WRONG_PARAMETERS_MESSAGE =
             "You set wrong parameter, please set only positive numbers\n";
     public static final String FIGURE_ADDED = "Figure was successfully added to the list\n";
@@ -20,6 +21,7 @@ public class ControllerMessage {
             "Please set only positive numbers.";
     public static final String NO_ONE_FIGURE_IN_LIST = "There are no one geometrical figure in the list yet\n";
     public static final String NUMBER_TO_CHANGE = "Please enter a number of the figure you want to change or press \"B\" to go back.\n";
+    public static final String ERROR_INITIALIZING_STREAM = "Error initializing stream.";
     public static final String MAIN_MENU_MESSAGE = """
             Please, type a number to select an option to:
             1) Calculate perimeter and area of geometrical figures in "Calculate Menu"
@@ -48,10 +50,8 @@ public class ControllerMessage {
             """;
     public static final String SAVE_LOAD_MENU_MESSAGE = """
             Please, type a number to select an operation or go to another menu:
-            1) Load default file
-            2) Load users file
-            3) Save as default file
-            4) Save as users file
+            1) Load saved list of figures
+            2) Save list of figures
             C) Go to "Calculate Menu"
             E) Go to "Edit Menu"
             M) Go to "Main Menu"

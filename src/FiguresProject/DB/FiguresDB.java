@@ -5,8 +5,6 @@ import FiguresProject.FiguresClasses.Figure;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
-
 import static FiguresProject.Controllers.ControllerMessage.*;
 
 public class FiguresDB implements Serializable {
@@ -35,14 +33,6 @@ public class FiguresDB implements Serializable {
 
     public static void printLastFigureInList() {
         geometricalFigures.get(geometricalFigures.size() - 1).getInfo();
-    }
-
-    public static void addFigureToList(Figure figure) {
-        geometricalFigures.add(figure);
-    }
-
-    public static void printFigure(Figure figure) {
-        figure.getInfo();
     }
 }
 

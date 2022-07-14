@@ -6,8 +6,6 @@ import FiguresProject.FiguresClasses.Circle;
 import FiguresProject.FiguresClasses.Figure;
 import FiguresProject.FiguresClasses.Rectangle;
 import FiguresProject.FiguresClasses.Triangle;
-
-import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -24,20 +22,20 @@ public class SetParametersService {
         if (number.equals("1")) {
             Circle circle = new Circle();
             circle.initializeFiguresParameters();
-            FiguresDB.addFigureToList(circle);
-            FiguresDB.printFigure(circle);
+            FiguresDB.getGeometricalFigures().add(circle);
+            circle.getInfo();
         }
         if (number.equals("2")) {
             Triangle triangle = new Triangle();
             triangle.initializeFiguresParameters();
-            FiguresDB.addFigureToList(triangle);
-            FiguresDB.printFigure(triangle);
+            FiguresDB.getGeometricalFigures().add(triangle);
+            triangle.getInfo();
         }
         if (number.equals("3")) {
             Rectangle rectangle = new Rectangle();
             rectangle.initializeFiguresParameters();
-            FiguresDB.addFigureToList(rectangle);
-            FiguresDB.printFigure(rectangle);
+            FiguresDB.getGeometricalFigures().add(rectangle);
+            rectangle.getInfo();
         }
         initializeAnotherOneFigure(number);
     }
@@ -102,8 +100,8 @@ public class SetParametersService {
         }
     }
 
-    public void filterFiguresList() {
-        Optional<Figure> figureOptional = getGeometricalFigures().stream().findFirst();
-        System.out.println(figureOptional.get());
-    }
+//    public void filterFiguresList() {
+//        Optional<Figure> figureOptional = getGeometricalFigures().stream().findFirst();
+//        System.out.println(figureOptional.get());
+//    }
 }

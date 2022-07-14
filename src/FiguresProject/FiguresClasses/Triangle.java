@@ -12,14 +12,7 @@ public class Triangle extends Figure implements Serializable {
     private double secondLine;
     private double thirdLine;
 
-    public Triangle(double firstLine, double secondLine, double thirdLine) {
-        this.firstLine = firstLine;
-        this.secondLine = secondLine;
-        this.thirdLine = thirdLine;
-    }
-
     public Triangle() {
-
     }
 
     public double getFirstLine() {
@@ -94,10 +87,5 @@ public class Triangle extends Figure implements Serializable {
             System.out.println(WRONG_PARAMETERS_MESSAGE);
             initializeFiguresParameters();
         }
-    }
-
-    @Override
-    public void changeFiguresParameters() {
-
     }
 }

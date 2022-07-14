@@ -10,11 +10,7 @@ import static FiguresProject.Services.SetParametersService.SCANNER;
 
 public class ControllerMenu {
 
-    //    SettingFigureService service = new SettingFigureService();
-//    FileService fileService = new FileService();
-//    ChangingFiguresService changingFiguresService = new ChangingFiguresService();
 //    StringBuilder welcomeMessage = new StringBuilder(WELCOME_MESSAGE);
-//    SetParametersService setParametersService = new SetParametersService();
     SetParametersService setParametersService = new SetParametersService();
     SaveLoadFigure saveLoadFigure = new SaveLoadFigure();
 
@@ -66,10 +62,7 @@ public class ControllerMenu {
         String userChoice = SCANNER.next().toLowerCase(Locale.ROOT);
         switch (userChoice) {
             case "1" -> saveLoadFigure.loadAsDefaultFile();
-//            case "2" -> fileService.loadUsersFile();
             case "3" -> saveLoadFigure.saveAsDefaultFile();
-//            case "4" -> fileService.deleteSelectedUsersFigures();
-//            case "5" -> fileService.saveUsersFile();
             case "c" -> initializeMenu();
             case "e" -> editMenu();
             case "m" -> mainMenu();
